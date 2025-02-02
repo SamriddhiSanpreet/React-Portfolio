@@ -51,7 +51,7 @@ const EducationPage = () =>{
       const maxScroll = document.body.scrollHeight - window.innerHeight;
   
       // Calculate the percentage of scrolling and translate the section left
-      const translateX = Math.min(0, -scrollY / maxScroll * 110); // Moves left to -100%
+      const translateX = Math.min(0, -scrollY / maxScroll * 60); // Moves left to -100%
   
       if (element) {
         element.style.transform = `translateX(${translateX}%)`;
