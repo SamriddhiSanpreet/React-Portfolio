@@ -29,7 +29,7 @@ const SocialIcons = (props) => {
   return (
     <Icons>
       <div>
-        <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/codebucks27"}}>
+        <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/SamriddhiSanpreet"}}>
             <Github width={25} height={25} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
         </NavLink>
       </div>
@@ -43,11 +43,11 @@ const SocialIcons = (props) => {
             <Instagram width={25} height={25} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
         </NavLink>
       </div>
-      <div>
-        <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/codebucks27"}}>
+      {/* <div>
+        <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/SamriddhiSanpreet"}}>
             <YouTube width={25} height={25} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
         </NavLink>
-      </div>
+      </div> */}
 
       <Line color={props.theme}/>
     </Icons>
