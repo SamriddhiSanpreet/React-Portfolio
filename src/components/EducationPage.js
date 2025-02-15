@@ -8,6 +8,7 @@ import {Work} from '../data/WorkData'
 import Card from '../subComponents/Card';
 import { YinYang } from './AllSvgs';
 import BigTitle from '../subComponents/BigTitle';
+import {motion} from 'framer-motion'
 
 
 const Box = styled.div`
@@ -17,7 +18,7 @@ const Box = styled.div`
   display:flex;
   align-items:center;
 `
-const Main = styled.ul`
+const Main = styled(motion.ul)`
   position:fixed;
   top:12rem;
   left:calc(10rem + 15vw);
@@ -35,7 +36,18 @@ const Rotate = styled.span`
   z-index:1;
 
 `
+const container ={
+  hidden:{opacity:0},
+  show:{
+    opacity:1,
 
+    transition:{
+      staggerChildren:0.5,
+      duration:0.5,
+
+    }
+  }
+}
 
 const EducationPage = () =>{
 
@@ -72,7 +84,7 @@ const EducationPage = () =>{
         <LogoComponent theme='dark'/>
         <SocialIcons theme='dark'/>
         <PowerButton/>
-        <Main ref={ref}>
+        <Main ref={ref} variants={container} initial='hidden' animate='show'>
           {
             Work.map(d => 
               <Card key={d.id} data={d}/>

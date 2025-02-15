@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components';
 
-const Box = styled.li`
+const Box = styled(motion.li)`
     width:16rem;
     height:40vh;
     background-color:${props => props.theme.body};
@@ -45,10 +46,23 @@ const Tag = styled.span`
     font-size:calc(0.8rem + 0.3vw);
 `
 
+const Item ={
+    hidden:{
+        scale:0
+    },
+    show:{
+        scale:1,
+        transition:{
+            type:'spring',
+            duration:0.5
+        }
+    }
+}
+
 const Card = (props) => {
     const {id, name, description, tags, github, demo}= props.data;
   return (
-    <Box key={id}>
+    <Box key={id} variants={Item}>
         <Title>{name}</Title>
         <Description>
             {description}
