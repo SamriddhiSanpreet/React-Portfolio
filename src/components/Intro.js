@@ -423,6 +423,18 @@ const SubBox = styled.div`
         width: 100%;
         height: 48vw;
     }
+    @media (max-width:394px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -11%);
+        width: 100%;
+        height: 48vw;
+    }
+
 
     @media (max-width:382px) {
         display:block;
@@ -436,6 +448,18 @@ const SubBox = styled.div`
         height: 48vw;
     }
 
+    @media (max-width:380px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -14%);
+        width: 100%;
+        height: 48vw;
+    }
+
     @media (max-width:370px) {
         display:block;
         width:100%;
@@ -444,6 +468,18 @@ const SubBox = styled.div`
         bottom: 0;
         top: 50%;
         transform: translate(-50%, -15%);
+        width: 100%;
+        height: 48vw;
+    }
+
+    @media (max-width:366px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -17%);
         width: 100%;
         height: 48vw;
     }
