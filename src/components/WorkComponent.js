@@ -28,7 +28,7 @@ const Box = styled(NavLink)`
 const Image = styled.div`
     background-image: ${props => `url(${props.img})`};
     width: 100%;
-    height: 60%; /* Ensures image does not shrink */
+    height: auto; /* Ensures image does not shrink */
     background-size: cover;
     background-position: center;
     flex-grow: 1; /* Ensures it takes space properly */

@@ -25,7 +25,7 @@ export const Blogs = [
     },
     {
         id:4,
-        name:"Developed an admin panel using jQuery and Bootstrap, offering a user-friendly and responsive interface for efficient management",
+        name:"Built a responsive admin panel with jQuery & Bootstrap for seamless management.",
         tags:["adminpanel","html","css","bootstrap","jquery"],
         date:"26 May, 2021",
         imgSrc:require("../assets/Images/pr-4.png"),

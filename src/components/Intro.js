@@ -400,7 +400,7 @@ const SubBox = styled.div`
         width: 100%;
         height: 48vw;
     }
-        @media (max-width:405px) {
+    @media (max-width:405px) {
         display:block;
         width:100%;
         .pic {
@@ -408,6 +408,54 @@ const SubBox = styled.div`
         bottom: 0;
         top: 50%;
         transform: translate(-50%, -9%);
+        width: 100%;
+        height: 48vw;
+    }
+
+    @media (max-width:382px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -12%);
+        width: 100%;
+        height: 48vw;
+    }
+
+    @media (max-width:370px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -15%);
+        width: 100%;
+        height: 48vw;
+    }
+
+    @media (max-width:356px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -18%);
+        width: 100%;
+        height: 48vw;
+    }
+
+    @media (max-width:352px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -17%);
         width: 100%;
         height: 48vw;
     }
@@ -453,6 +501,12 @@ const Text = styled.div`
     @media (max-width:533px) {
         text-align:center;
         margin-top:0rem;
+    }
+
+    @media (max-width:352px) {
+       h3{
+            padding:0.5rem 0;
+         }
     }
 `;
 
