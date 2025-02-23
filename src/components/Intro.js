@@ -422,6 +422,7 @@ const SubBox = styled.div`
         transform: translate(-50%, -9%);
         width: 100%;
         height: 48vw;
+        background-color:red;
     }
     @media (max-width:394px) {
         display:block;
