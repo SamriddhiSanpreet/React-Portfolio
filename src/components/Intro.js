@@ -484,7 +484,7 @@ const SubBox = styled.div`
         height: 48vw;
     }
 
-    @media (max-width:334px) {
+    @media (max-width:338px) {
         display:block;
         width:100%;
         .pic {
