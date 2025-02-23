@@ -149,6 +149,18 @@ const SubBox = styled.div`
         height: 33vw;
     }
 
+    @media (max-width:648px) {
+        display:block;
+        width:100%;
+        .pic {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        transform: translate(-50%, -10%);
+        width: 100%;
+        height: 33vw;
+    }
+
     @media (max-width:639px) {
         display:block;
         width:100%;
