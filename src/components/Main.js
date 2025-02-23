@@ -23,6 +23,7 @@ const MainContainer = styled.div`
     font-family:'Karla', sans-serif;
     font-weight:500;
   }
+
 `
 
 const Container = styled.div`
@@ -30,14 +31,18 @@ const Container = styled.div`
 
 `
 
-const Contact = styled(NavLink)`
+const Contact = styled.a`
   color:#000;
-  position:absolute;
-  top:2rem;
-  right:calc(1rem + 2vw);
-  text-decoration:none;
-  z-index:1;
-`
+  position: absolute;
+  top: 2rem;
+  right: calc(1rem + 2vw);
+  text-decoration: none;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    color:${props => props.click ? props.theme.text : props.theme.body};
+  }
+`;
 
 const WORK = styled(NavLink)`
   color:#000;
@@ -47,6 +52,11 @@ const WORK = styled(NavLink)`
   transform: rotate(90deg) translate(-50%,-50%);
   text-decoration:none;
   z-index:1;
+
+  @media (max-width: 768px) {
+      color:${props => props.click ? props.theme.text : props.theme.body};
+      top: ${props => (props.click ? "45%" : "50%")};
+  }
 `
 const EDUCATION = styled(NavLink)`
   color:${props => props.click ? props.theme.text : props.theme.body};
@@ -56,6 +66,15 @@ const EDUCATION = styled(NavLink)`
   transform: rotate(-90deg) translate(-50%,-50%);
   text-decoration:none;
   z-index:1;
+
+  @media (max-width: 1496px) {
+     top:27%;
+  }
+
+  @media (max-width: 768px) {
+      color:${props => props.click ? props.theme.text : props.theme.body};
+      top:27%
+  }
 `
 const BottomBar = styled.div`
   position:absolute;
@@ -70,6 +89,10 @@ const ABOUT = styled(NavLink)`
   color:${props => props.click ? props.theme.text : props.theme.body};
   text-decoration:none;
   z-index:1;
+
+  @media (max-width: 768px) {
+      color:#000;
+  }
 `
 const SKILLS = styled(NavLink)`
   color:#000;
@@ -120,7 +143,35 @@ const DarkDiv = styled.div`
   height:${props => props.click ? '100%': '0%'};
   transition:height 0.5s ease, width 1s ease 0.5s;
   z-index:1;
+
+  @media (max-width: 768px) {
+        top:0;
+        left:0;
+        right:0;
+        width:${props => props.click ? '100%': '0%'};
+        height:${props => props.click ? '50%': '0%'};
+  }
+
 `
+const ResponsiveYinYang = styled(YinYang)`
+  width: ${props => (props.click ? '120px' : '200px')};
+  height: ${props => (props.click ? '120px' : '200px')};
+
+  @media (max-width: 1024px) {
+    width: ${props => (props.click ? '100px' : '180px')};
+    height: ${props => (props.click ? '100px' : '180px')};
+  }
+
+  @media (max-width: 768px) {
+    width: ${props => (props.click ? '80px' : '150px')};
+    height: ${props => (props.click ? '80px' : '150px')};
+  }
+
+  @media (max-width: 480px) {
+    width: ${props => (props.click ? '60px' : '120px')};
+    height: ${props => (props.click ? '60px' : '120px')};
+  }
+`;
 
 
 
@@ -135,12 +186,12 @@ const Main = () =>{
         <Container>
           <PowerButton/>
           <LogoComponent theme={click?'dark':'light'}/>
-          <SocialIcons theme={click?'dark':'light'}/>
+          <SocialIcons theme={click ? "dark" : "light"} page="main" />
           <Center click={click}>
-              <YinYang onClick={()=>handleClick()} width={click?120:200} height={click?120:200} fill='currentColor'/>
+          <ResponsiveYinYang onClick={handleClick} click={click} fill="currentColor" />
               <span>click here</span>
           </Center>
-          <Contact target="_blank" to={{pathname:"mailto:samdeveloper2024@gmail.com"}}>
+          <Contact target="_blank" href="mailto:samriddhisanpreet2005@gmail.com" click={click}>
               <motion.h2
                 initial={{
                   y:-200,

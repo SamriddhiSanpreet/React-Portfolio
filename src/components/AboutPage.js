@@ -54,6 +54,30 @@ const Main = styled.div`
   top:10rem;
   font-family:'Ubuntu Mono',monospace;
   font-style:italic;
+
+  @media (max-width:869px) {
+      padding:1rem 2rem;
+  }
+
+  @media (max-width:750px) {
+      padding:0.3rem 2rem;
+  }
+
+  @media (max-width:739px) {
+      padding:2rem 2rem;
+  }
+
+  @media (max-width:660px) {
+      padding:2rem 1.5rem;
+  }
+
+  @media (max-width:610px) {
+      padding:1rem 1.5rem;
+  }
+
+  @media (max-width:470px) {
+      padding:2rem 1.5rem;
+  }
 `
 
 
@@ -62,7 +86,7 @@ const AboutPage = () =>{
     <ThemeProvider theme={lightTheme}>
       <Box>
         <LogoComponent theme='dark'/>
-        <SocialIcons theme='dark'/>
+        <SocialIcons theme="dark" page="about" />
         <PowerButton/>
         <ParticleComponent theme='dark'/>
         <Spaceman>

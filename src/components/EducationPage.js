@@ -25,6 +25,18 @@ const Main = styled(motion.ul)`
   height:40vh;
   display:flex;
   color:#fff;
+
+  @media (max-width: 632px) {
+    left:calc(5rem + 15vw);
+  }
+
+   @media (max-width: 490px) {
+    left:calc(2rem + 15vw);
+  }
+
+   @media (max-width: 422px) {
+    left:calc(0rem + 15vw);
+  }
 `
 const Rotate = styled.span`
   display:block;
@@ -56,20 +68,54 @@ const EducationPage = () =>{
 
 
   useEffect(() => {
-    const element = ref.current; // The main container for the Education section
+    const element = ref.current; // The main container
+    const yinYangElement = yinyang.current; // The rotating element
   
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const maxScroll = document.body.scrollHeight - window.innerHeight;
   
-      // Calculate the percentage of scrolling and translate the section left
-      const translateX = Math.min(0, -scrollY / maxScroll * 60); // Moves left to -100%
+      let maxTranslate;
+  
+      // Use if-else for responsiveness
+      if (window.innerWidth < 437) {
+        maxTranslate = 95; // Smaller shift for mobile
+      }
+      else if (window.innerWidth < 632) {
+        maxTranslate = 90; // Smaller shift for mobile
+      }
+      else if (window.innerWidth < 777) {
+        maxTranslate = 85; // Smaller shift for mobile
+      }
+      else if (window.innerWidth < 917) {
+        maxTranslate = 80; // Smaller shift for mobile
+      }
+      else if (window.innerWidth < 1059) {
+        maxTranslate = 75; // Smaller shift for mobile
+      }
+      else if (window.innerWidth < 1344) {
+        maxTranslate = 70; // Smaller shift for mobile
+      } 
+      else {
+        maxTranslate = 60; // Larger shift for desktops
+      }
+  
+      // Calculate horizontal translation
+      const translateX = Math.min(0, (-scrollY / maxScroll) * maxTranslate); 
+      
+      // Calculate rotation degree based on scroll position
+      const rotation = scrollY * 0.5; // Adjust speed by changing multiplier
   
       if (element) {
         element.style.transform = `translateX(${translateX}%)`;
       }
+  
+      if (yinYangElement) {
+        yinYangElement.style.transform = `rotate(${rotation}deg)`;
+      }
     };
   
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
   
     return () => {
@@ -77,12 +123,14 @@ const EducationPage = () =>{
     };
   }, []);
   
+  
+  
 
   return (
     <ThemeProvider theme={lightTheme}>
       <Box>
         <LogoComponent theme='dark'/>
-        <SocialIcons theme='dark'/>
+        <SocialIcons theme='dark' page="about"/>
         <PowerButton/>
         <Main ref={ref} variants={container} initial='hidden' animate='show'>
           {
