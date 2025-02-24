@@ -70,58 +70,55 @@ const EducationPage = () =>{
   useEffect(() => {
     const element = ref.current; // The main container
     const yinYangElement = yinyang.current; // The rotating element
+    let scrollOffset = 0; // Virtual horizontal scroll tracking
+  
+    const getMaxTranslate = () => {
+      if (window.innerWidth < 437) return 95;
+      if (window.innerWidth < 632) return 90;
+      if (window.innerWidth < 777) return 85;
+      if (window.innerWidth < 917) return 80;
+      if (window.innerWidth < 1059) return 75;
+      if (window.innerWidth < 1344) return 70;
+      return 60; // Default for larger screens
+    };
   
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const maxScrollY = document.body.scrollHeight - window.innerHeight;
+      const maxTranslate = getMaxTranslate();
   
-      let maxTranslate;
-  
-      // Use if-else for responsiveness
-      if (window.innerWidth < 437) {
-        maxTranslate = 95; // Smaller shift for mobile
-      }
-      else if (window.innerWidth < 632) {
-        maxTranslate = 90; // Smaller shift for mobile
-      }
-      else if (window.innerWidth < 777) {
-        maxTranslate = 85; // Smaller shift for mobile
-      }
-      else if (window.innerWidth < 917) {
-        maxTranslate = 80; // Smaller shift for mobile
-      }
-      else if (window.innerWidth < 1059) {
-        maxTranslate = 75; // Smaller shift for mobile
-      }
-      else if (window.innerWidth < 1344) {
-        maxTranslate = 70; // Smaller shift for mobile
-      } 
-      else {
-        maxTranslate = 60; // Larger shift for desktops
-      }
-  
-      // Calculate horizontal translation
-      const translateX = Math.min(0, (-scrollY / maxScroll) * maxTranslate); 
-      
-      // Calculate rotation degree based on scroll position
-      const rotation = scrollY * 0.5; // Adjust speed by changing multiplier
+      // Slower and smoother translation (reduced effect)
+      let translateX = (-scrollY / maxScrollY) * maxTranslate * 1.2;
+      translateX = Math.max(-maxTranslate, Math.min(0, translateX + scrollOffset));
   
       if (element) {
         element.style.transform = `translateX(${translateX}%)`;
       }
   
       if (yinYangElement) {
-        yinYangElement.style.transform = `rotate(${rotation}deg)`;
+        yinYangElement.style.transform = `rotate(${(scrollY + scrollOffset) * 0.8}deg)`; // Slower rotation
       }
     };
   
-    // Add scroll event listener
+    const handleWheel = (event) => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        scrollOffset += event.deltaX * 0.15; // **Slower horizontal movement**
+        scrollOffset = Math.max(-getMaxTranslate(), Math.min(0, scrollOffset)); // Clamping to prevent overshoot
+        handleScroll();
+      }
+    };
+  
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleWheel);
   
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleWheel);
     };
   }, []);
+  
+  
+  
   
   
   
