@@ -24,6 +24,6 @@ Check out the live version here: [Live Demo](https://react-portfolio-phi-sage.ve
 ## 📬 Connect With Me
 - GitHub: [SamriddhiSanpreet](https://github.com/SamriddhiSanpreet)
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/samriddhi-sanpreet-714277323/)
-- Email: [Your Email](samdeveloper2024@gmail.com)
+- Email: [Your Email](mailto:samdeveloper2024@gmail.com)
 
 💡 **Feel free to explore and reach out for collaboration or feedback!**

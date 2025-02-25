@@ -191,7 +191,7 @@ const Main = () =>{
           <ResponsiveYinYang onClick={handleClick} click={click} fill="currentColor" />
               <span>click here</span>
           </Center>
-          <Contact target="_blank" href="mailto:samriddhisanpreet2005@gmail.com" click={click}>
+          <Contact target="_blank" href="mailto:samdeveloper2024@gmail.com" click={click}>
               <motion.h2
                 initial={{
                   y:-200,
