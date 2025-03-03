@@ -17,15 +17,31 @@ const Box = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 400px) {
+    height: auto; /* Allow content to expand vertically */
+  }
 `
+
 const Main = styled(motion.ul)`
   position: fixed;
   top: 12rem;
   left: calc(10rem + 15vw);
   height: 40vh;
   display: flex;
+  flex-direction: row; /* Default layout (horizontal) */
   color: #fff;
   transition: transform 0.5s ease-in-out;
+
+  @media (max-width: 400px) {
+    position: relative;
+    flex-direction: column; /* Change to vertical layout */
+    top: 0;
+    left: 0;
+    height: auto; /* Allow the cards to expand vertically */
+    margin-bottom: 2rem; /* Add some spacing for scrolling */
+  }
 
   @media (max-width: 632px) {
     left: calc(5rem + 15vw);
@@ -39,6 +55,7 @@ const Main = styled(motion.ul)`
     left: calc(0rem + 15vw);
   }
 `
+
 const Rotate = styled.span`
   display: block;
   position: fixed;
@@ -48,6 +65,7 @@ const Rotate = styled.span`
   height: 80px;
   z-index: 1;
 `
+
 const ButtonContainer = styled.div`
   position: fixed;
   bottom: 2rem;
@@ -55,7 +73,12 @@ const ButtonContainer = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 400px) {
+    display: none; /* Hide the buttons on small screens */
+  }
 `
+
 const Button = styled(motion.button)`
   padding: 12px 24px;
   background: linear-gradient(145deg, #2e2e2e, #1a1a1a);
@@ -76,6 +99,7 @@ const Button = styled(motion.button)`
     transform: scale(1.1);
   }
 `
+
 const container = {
   hidden: { opacity: 0 },
   show: {
